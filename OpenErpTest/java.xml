@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall xmlns:ex="http://ws.apache.org/xmlrpc/namespaces/extensions">
+  <methodName>exec_workflow</methodName>
+  <params>
+    <param>
+      <value>openerp_eng</value>
+    </param>
+    <param>
+      <value>
+        <i4>1</i4>
+      </value>
+    </param>
+    <param>
+      <value>openerp_eng</value>
+    </param>
+    <param>
+      <value>account.invoice</value>
+    </param>
+    <param>
+      <value>invoice_open</value>
+    </param>
+    <param>
+      <value>
+        <i4>2231</i4>
+      </value>
+    </param>
+  </params>
+</methodCall>

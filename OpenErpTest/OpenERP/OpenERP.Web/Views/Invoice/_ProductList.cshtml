@@ -1,0 +1,41 @@
+﻿@model OpenERP.Web.Models.InvoiceSearchViewModel
+
+
+@if (Model.Products.Any())
+{
+    <table class="table table-condensed">
+        <caption>Toodete otsingutulemused</caption>
+        <tr>
+            <th>Id</th>
+            <th>Nimetus</th>
+        </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>
+                    @if (Model.Customer == null)
+                    {
+                        @product.NameTemplate
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("Create", "Invoice", FormMethod.Post, new { id = "pf-" + product.Id }))
+                        {
+                            <input type="hidden" name="ProductId" value="@product.Id" />
+                            <input type="hidden" name="CustomerId" value="@Model.Customer.Id" />
+
+                            <a href="javascript:submitForm('pf-@product.Id');">@product.NameTemplate</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+<script>
+    function submitForm(id){
+        document.getElementById(id).submit();
+    }
+</script>

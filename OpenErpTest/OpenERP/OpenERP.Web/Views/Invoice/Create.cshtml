@@ -1,0 +1,68 @@
+﻿@using OpenERP.Web.Models
+@model InvoiceCreateViewModel
+<div class="container">
+    @Html.WriteErrors()
+    
+    @using (Html.BeginForm("Create", "Invoice", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.SubTask)
+        @Html.HiddenFor(m => m.CustomerId)
+        @Html.HiddenFor(m => m.ProductId)
+        
+        <table class="table table-striped">
+            <tr>
+                <td>@Html.LabelFor(m => m.Customer)</td>
+                <td>@Model.Customer.Name</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Product)</td>
+                <td>@Model.Product.NameTemplate</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Ühiku hind")</td>
+                <td>@Model.Product.LstPrice</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Amount)</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Amount)
+                    <input type="button" value="Uuenda kogust" id="btn-update-amount" class="btn btn-xs" />
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.TotalAmount)</td>
+                <td>@Model.TotalAmount</td>
+            </tr>
+            
+            @if (Model.TotalAmount > 0)
+            {
+                <tr>
+                    <td colspan="2">
+                        <input type="button" value="Tee Arve" id="btn-create-invoice" class="btn btn-primary" />
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            function submitForm(element, taskValue){
+                var form = element.closest("form");
+                form.find("#SubTask").val(taskValue);
+                form.submit();
+            }
+
+            $("#btn-update-amount").click(function () {
+                submitForm($(this), 'update-amount');
+            });
+            $("#btn-create-invoice").click(function () {
+                submitForm($(this), 'create-invoice');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="OpenERP.SoapServices.Invoice" CodeBehind="Invoice.svc.cs" %>

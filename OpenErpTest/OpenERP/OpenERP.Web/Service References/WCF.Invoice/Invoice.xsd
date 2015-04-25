@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/OpenERP.Library" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OpenERP.Library" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ResPartner">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OpenErpEntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResPartner" nillable="true" type="tns:ResPartner" />
+  <xs:complexType name="OpenErpEntityBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenErpEntityBase" nillable="true" type="tns:OpenErpEntityBase" />
+  <xs:complexType name="ProductProduct">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OpenErpEntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Ean13" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HrExpenseOk" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IncomingQty" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="LocationId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LstPrice" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="NameTemplate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OutgoingQty" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PartnerRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceExtra" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceMargin" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PricelistId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTmplId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProjectId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="QtyAvailable" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="TrackIncoming" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TrackOutgoing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TrackProduction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Valuation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Variants" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VirtualAvailable" nillable="true" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProductProduct" nillable="true" type="tns:ProductProduct" />
+  <xs:complexType name="AccountInvoice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OpenErpEntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="xs:int" />
+          <xs:element minOccurs="0" name="AddressInvoiceId" type="xs:int" />
+          <xs:element minOccurs="0" name="AmountTotal" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+          <xs:element minOccurs="0" name="CurrencyId" type="xs:int" />
+          <xs:element minOccurs="0" name="DateInvoice" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="InvoiceLines" nillable="true" type="tns:ArrayOfAccountInvoiceLine" />
+          <xs:element minOccurs="0" name="JournalId" type="xs:int" />
+          <xs:element minOccurs="0" name="MoveId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartnerId" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Residual" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccountInvoice" nillable="true" type="tns:AccountInvoice" />
+  <xs:complexType name="ArrayOfAccountInvoiceLine">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountInvoiceLine" nillable="true" type="tns:AccountInvoiceLine" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountInvoiceLine" nillable="true" type="tns:ArrayOfAccountInvoiceLine" />
+  <xs:complexType name="AccountInvoiceLine">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OpenErpEntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountAnalyticId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="AccountId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Discount" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="InvoiceId" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartnerId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PriceSubtotal" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="PriceUnit" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ProductProduct" />
+          <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="UosId" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccountInvoiceLine" nillable="true" type="tns:AccountInvoiceLine" />
+</xs:schema>

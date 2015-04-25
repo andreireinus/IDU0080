@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<methodCall>
+  <methodName>exec_workflow</methodName>
+  <params>
+    <param>
+      <value>
+        <string>openerp_eng</string>
+      </value>
+    </param>
+    <param>
+      <value>
+        <i4>0</i4>
+      </value>
+    </param>
+    <param>
+      <value>
+        <string>openerp_eng</string>
+      </value>
+    </param>
+    <param>
+      <value>
+        <string>account.invoice</string>
+      </value>
+    </param>
+    <param>
+      <value>
+        <string>invoice_open</string>
+      </value>
+    </param>
+    <param>
+      <value>
+        <i4>2232</i4>
+      </value>
+    </param>
+  </params>
+</methodCall>

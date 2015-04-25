@@ -1,0 +1,131 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Jlob.OpenErpNet\\bin\\Debug\\Jlob.OpenErpNet.dll" #>
+<#@ assembly name="$(SolutionDir)Jlob.OpenErpNet.Entities\\bin\\Debug\\Jlob.OpenErpNet.Entities.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Jlob.OpenErpNet" #>
+<#@ import namespace="Jlob.OpenErpNet.Entities" #>
+<#@ output extension=".cs" #>
+
+using System;
+using System.Collections.Generic;
+
+namespace Jlob.OpenErpNet.Templates{
+<# 
+	ClearIndent();
+	IEnumerable<Model> Models;
+	OpenErpService openErpService = new OpenErpService("http://192.168.73.128:8069", "POLTEST", "admin", "admin");
+	Models = openErpService.GetEntities<Model>(e => e.Osv_Memory == false).Include(i => i.Fields);
+	foreach (Model model in Models){
+#>
+
+	public class <#= model.Class.Replace('.','_') #>{
+
+		<#
+		PushIndent("		");
+		WriteLine("public int id {get; set;}");
+		List<Field> fields = new List<Field>();
+		string openErpAttribute = String.Empty;
+		foreach (Field field in model.Fields){
+			string netType;
+			switch(field.Type){
+				case "char":
+					netType = "string";
+					break;
+				case "text":
+					netType = "string";
+					break;
+				case "boolean":
+					netType = "bool";
+					break;
+				case "integer":
+					if(field.Required){
+						netType = "int";
+					}else{
+						netType = "int?";
+					}
+					break;
+				case "one2many":
+					netType = "ICollection<" + field.ObjectRelation.Replace('.','_') + ">";
+					break;
+				case "many2one":
+					fields.Add(field);
+					if(field.Required){
+						netType = "int";
+					}else{
+						netType = "int?";
+					}
+					break;
+				case "many2many":
+					netType = "ICollection<" + field.ObjectRelation.Replace('.','_') + ">";
+					break;
+				case "float":
+					if(field.Required){
+						netType = "double";
+					}else{
+						netType = "double?";
+					}
+					break;
+				case "date":
+					if(field.Required){
+						netType = "DateTime";
+					}else{
+						netType = "DateTime?";
+					}
+					openErpAttribute = "[OpenErpMap(OpenErpType.Date)]";
+					break;
+				case "datetime":
+					if(field.Required){
+						netType = "DateTime";
+					}else{
+						netType = "DateTime?";
+					}
+					openErpAttribute = "[OpenErpMap(OpenErpType.Datetime)]";
+					break;
+				case "binary":
+					netType = "Object";
+					break;
+				case "selection":
+					netType = "String";
+					break;
+				default:
+					netType = "object";
+					break;
+			}
+			string[] words = new string[]{"ref", "params", "object", "readonly", "public", "default", "base"};
+			if(words.Contains(field.Name)){
+				field.Name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(field.Name);
+			}
+			if(field.Name == "id"){
+				continue;
+			}
+			string property = String.Format("public {0} {1} {{get; set;}}", netType, field.Name );
+			if(!String.IsNullOrEmpty(openErpAttribute)){
+				WriteLine(openErpAttribute);
+				openErpAttribute = String.Empty;
+			}
+			WriteLine(property);
+		}
+		List<String> fieldNames = new List<String>();
+		foreach (Field field in fields){
+			string fieldType = field.ObjectRelation.Replace('.','_');
+			string fieldName = string.Join("", field.Name.Replace("ids", "").Replace("id", "").Split('_').Select(x=> CultureInfo.CurrentCulture.TextInfo.ToTitleCase(x)));
+			if(fieldNames.Contains(fieldName)){
+				fieldName = fieldName + fieldNames.Where(x => x.Equals(fieldName)).Count();
+			}
+			fieldNames.Add(fieldName);
+			string property = String.Format("public {0} {1} {{get; set;}}", fieldType, fieldName );
+			string attribute = String.Format("[OpenErpForeignKey(\"{0}\")]", field.Name);
+			WriteLine(attribute);
+			WriteLine(property);
+		}
+		PopIndent();
+		#>
+	}
+<#
+	}
+#>
+}

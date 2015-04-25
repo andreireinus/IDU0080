@@ -1,0 +1,14 @@
+﻿@model OpenERP.Web.WCF.Invoice.AccountInvoice
+           
+<h1>Arve loodud</h1>
+
+<div class="container">
+    Arve <strong>@Model.Number</strong> on loodud!
+</div>
+
+@Scripts.Render("~/Scripts/app/library.js")
+<script>
+    var lh = new InvoiceNumberHolder();
+    lh.store('@Model.Number');
+</script>
+

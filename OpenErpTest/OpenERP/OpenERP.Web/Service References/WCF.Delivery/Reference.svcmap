@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="65bbd5fa-6483-4ac0-9c20-58e46613c8bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49210/Delivery.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Delivery1.xsd" MetadataType="Schema" ID="2aa398c6-12fa-4669-a284-e95d9bca9770" SourceId="1" SourceUrl="http://localhost:49210/Delivery.svc?xsd=xsd1" />
+    <MetadataFile FileName="Delivery.xsd" MetadataType="Schema" ID="7244fc1a-4a41-49f5-89f6-e8e11a597077" SourceId="1" SourceUrl="http://localhost:49210/Delivery.svc?xsd=xsd0" />
+    <MetadataFile FileName="Delivery.disco" MetadataType="Disco" ID="8ada27d9-7b20-4e36-9aec-721af8d56887" SourceId="1" SourceUrl="http://localhost:49210/Delivery.svc?disco" />
+    <MetadataFile FileName="Delivery2.xsd" MetadataType="Schema" ID="0aa99f08-1c26-4b9e-9989-8250bbc9570f" SourceId="1" SourceUrl="http://localhost:49210/Delivery.svc?xsd=xsd2" />
+    <MetadataFile FileName="Delivery.wsdl" MetadataType="Wsdl" ID="78842cda-5fa6-45ef-8a7c-469878519765" SourceId="1" SourceUrl="http://localhost:49210/Delivery.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

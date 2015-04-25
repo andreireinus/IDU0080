@@ -1,0 +1,31 @@
+﻿@using OpenERP.Web.Models
+@model InvoiceSearchViewModel
+
+<div class="container">
+    @Html.WriteErrors()
+    @using (Html.BeginForm("Index", "Invoice", FormMethod.Post))
+    {
+        <table class="table table-striped">
+            <tr>
+                <td>@Html.LabelFor(m => m.CustomerName)</td>
+                <td>@Html.TextBoxFor(m => m.CustomerName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.ProductName)</td>
+                <td>@Html.TextBoxFor(m => m.ProductName)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Otsi" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    }
+    @Html.Partial("_ProductList", Model)
+    
+    @if (Model.Customer != null)
+    {
+        @Html.Partial("_Customer", Model.Customer)
+    }
+    
+</div>

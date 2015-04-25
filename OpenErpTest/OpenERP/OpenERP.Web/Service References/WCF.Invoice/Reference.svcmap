@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d0c9777-3247-4ea6-a946-8e90421e4f72" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49210/Invoice.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Invoice.xsd" MetadataType="Schema" ID="18f7b571-110b-4597-a439-aced799dac56" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?xsd=xsd3" />
+    <MetadataFile FileName="Invoice.disco" MetadataType="Disco" ID="eac08f37-a5e6-4fb5-9d7e-d16f286bb0cd" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?disco" />
+    <MetadataFile FileName="Invoice1.xsd" MetadataType="Schema" ID="e9935ef1-b3a8-4b00-b9b1-85f67f3b7305" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?xsd=xsd0" />
+    <MetadataFile FileName="Invoice2.xsd" MetadataType="Schema" ID="97095378-df89-461e-a5ec-941ec53b48d1" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?xsd=xsd1" />
+    <MetadataFile FileName="Invoice.wsdl" MetadataType="Wsdl" ID="c952151b-7d73-4981-a04c-4bde0b8029e2" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?wsdl" />
+    <MetadataFile FileName="Invoice4.xsd" MetadataType="Schema" ID="6c25b07a-f505-4509-ab94-43eacedbd300" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?xsd=xsd4" />
+    <MetadataFile FileName="Invoice3.xsd" MetadataType="Schema" ID="23151718-f881-4865-a9f8-4210ef58c40a" SourceId="1" SourceUrl="http://localhost:49210/Invoice.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
